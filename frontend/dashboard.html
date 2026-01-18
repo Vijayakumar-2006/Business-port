@@ -244,6 +244,99 @@
             margin-bottom: 2rem;
             line-height: 1.5;
         }
+
+        /* Christmas/New Year Special Section (Internal CSS) */
+        .holiday-special {
+            background: linear-gradient(135deg, #b31217 0%, #e52d27 100%);
+            /* Red Theme matching index.html */
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 2rem auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(229, 45, 39, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holiday-special::before,
+        .holiday-special::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            top: 20px;
+            left: 20%;
+            box-shadow: 100px 30px 0 -2px rgba(255, 255, 255, 0.3),
+                -50px 80px 0 2px rgba(255, 255, 255, 0.3),
+                300px 10px 0 0 rgba(255, 255, 255, 0.4),
+                450px 50px 0 -1px rgba(255, 255, 255, 0.3);
+        }
+
+        .holiday-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .holiday-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .holiday-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .holiday-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            min-width: 250px;
+            flex: 1 1 250px;
+            max-width: 350px;
+            transition: transform 0.3s ease;
+        }
+
+        .holiday-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .holiday-offer-tag {
+            background: #FFD700;
+            color: #b31217;
+            font-weight: 800;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .holiday-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .holiday-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
     </style>
 </head>
 
@@ -330,6 +423,36 @@
                 </div>
             </div>
             </div>
+            </div>
+
+            <!-- Christmas/New Year Special Section -->
+            <section class="container" style="padding: 0 1rem;">
+                <div class="holiday-special">
+                    <h2 class="holiday-title">Christmas & New Year Specials</h2>
+                    <p class="holiday-subtitle">Celebrate the season with our exclusive festive deals!</p>
+
+                    <div class="holiday-grid">
+                        <div class="holiday-card">
+                            <span class="holiday-offer-tag">Year End Sale</span>
+                            <h3>Flat 40% OFF</h3>
+                            <p>On all winter wear collection. Warm up your style this season.</p>
+                        </div>
+
+                        <div class="holiday-card">
+                            <span class="holiday-offer-tag">New Year Blast</span>
+                            <h3>Buy 2 Get 1 Free</h3>
+                            <p>Purchase any two accessories and get the third one absolutely free!</p>
+                        </div>
+
+                        <div class="holiday-card">
+                            <span class="holiday-offer-tag">Valid till Jan 5th</span>
+                            <h3>Extra 15% OFF</h3>
+                            <p>Use code <strong>NEWYEAR2026</strong> on orders above ₹2000.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
             <!-- Offer Section -->
             <div style="text-align: center; margin: 2rem auto;">
