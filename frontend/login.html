@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+	<title>Log In • URBAN WAVES</title>
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- Lucide Icons -->
+	<script src="https://unpkg.com/lucide@latest"></script>
+
+	<!-- External CSS -->
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+	<div class="form-page signup-bg">
+
+		<div class="form-container signup-form">
+
+			<h2>Welcome Back</h2>
+			<p class="form-subtitle">Log in to your account</p>
+
+			<form id="loginForm" class="form-box">
+
+				<div class="input-group">
+					<i data-lucide="mail"></i>
+					<input type="email" placeholder="Email" required>
+				</div>
+
+				<div class="input-group">
+					<i data-lucide="lock"></i>
+					<input type="password" placeholder="Password" required>
+				</div>
+
+				<button type="submit" class="btn-primary full-width">Log In</button>
+
+			</form>
+
+			<p class="form-footer">
+				Don't have an account? <a href="signup.html">Sign Up</a>
+			</p>
+		</div>
+
+	</div>
+
+	<script src="scripts/app.js"></script>
+	<script>
+		lucide.createIcons();
+
+		document.getElementById('loginForm').addEventListener('submit', function (e) {
+			e.preventDefault();
+
+			const form = e.target;
+			const email = (form.querySelector('input[type="email"]').value || '').trim().toLowerCase();
+			const password = form.querySelector('input[type="password"]').value || '';
+
+			// Check users in localStorage
+			const users = JSON.parse(localStorage.getItem('users') || '[]');
+			const user = users.find(u => u.email === email && u.password === password);
+
+			if (user) {
+				// Success
+				localStorage.setItem('userData', JSON.stringify(user));
+				localStorage.setItem('isLoggedIn', 'true');
+				localStorage.setItem('currentUser', email);
+
+				if (typeof showToast === 'function') {
+					showToast('Login successful — redirecting...');
+				} else {
+					// Fallback if toast not available
+				}
+
+				setTimeout(() => window.location.href = 'dashboard.html', 600);
+			} else {
+				// Check if it matches the legacy 'userData' (fallback for single user mode if users array is empty/missing user)
+				// This is useful if the user signed up before we started using the 'users' array, 
+				// but given we just refactored signup, this is less critical but good for robustness.
+				const legacyData = localStorage.getItem('userData');
+				let foundLegacy = false;
+				if (legacyData) {
+					try {
+						const parsed = JSON.parse(legacyData);
+						if (parsed.email === email && parsed.password === password) {
+							foundLegacy = true;
+							// Ensure session is set
+							localStorage.setItem('isLoggedIn', 'true');
+							localStorage.setItem('currentUser', email);
+							setTimeout(() => window.location.href = 'dashboard.html', 600);
+						}
+					} catch (e) { }
+				}
+
+				if (!foundLegacy) {
+					alert('Invalid email or password.');
+				}
+			}
+		});
+	</script>
+
+</body>
+
+</html>
