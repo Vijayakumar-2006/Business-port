@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings • Urban Waves</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='dashboard.html'">
+                <i data-lucide="shopping-bag"></i>
+                <span class="logo-word urban">URBAN</span>
+                <span class="logo-word waves">WAVES</span>
+            </div>
+
+            <nav class="nav-links">
+                <button onclick="window.location.href='dashboard.html'">Home</button>
+                <button onclick="window.location.href='shop.html'">Shop</button>
+                <button onclick="window.location.href='dashboard.html#contact'">Contact</button>
+                <button onclick="window.location.href='profile.html'">
+                    <i data-lucide="user"></i>
+                    <span>Profile</span>
+                </button>
+            </nav>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu hidden" id="mobileMenu">
+            <button onclick="window.location.href='dashboard.html'">Home</button>
+            <button onclick="window.location.href='dashboard.html#shop'">Shop</button>
+            <button onclick="window.location.href='dashboard.html#contact'">Contact</button>
+            <button onclick="window.location.href='profile.html'">
+                <i data-lucide="user"></i>
+                <span>Profile</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SETTINGS PAGE WRAPPER -->
+    <main class="settings-page">
+        <div class="form-page signup-bg">
+            <div class="form-container signup-form">
+                <h2>Account Settings</h2>
+
+                <div class="account-card settings-card">
+                    <div class="account-list">
+                        <div class="account-list-item" id="editProfileItem" onclick="openEditProfileModal()">
+                            <div class="settings-item-icon">
+                                <i data-lucide="user"></i>
+                            </div>
+                            <div class="account-list-main">
+                                <span class="account-list-label">Edit Profile</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="account-list-arrow"></i>
+                        </div>
+
+                        <div class="account-list-item">
+                            <div class="settings-item-icon">
+                                <i data-lucide="credit-card"></i>
+                            </div>
+                            <div class="account-list-main">
+                                <span class="account-list-label">Saved Cards & Payments</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="account-list-arrow"></i>
+                        </div>
+
+                        <div class="account-list-item">
+                            <div class="settings-item-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div class="account-list-main">
+                                <span class="account-list-label">Saved Addresses</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="account-list-arrow"></i>
+                        </div>
+
+                        <div class="account-list-item">
+                            <div class="settings-item-icon">
+                                <i data-lucide="bell"></i>
+                            </div>
+                            <div class="account-list-main">
+                                <span class="account-list-label">Notification Settings</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="account-list-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="form-footer" style="margin-top: 16px;">
+                    Want to go back? <a href="profile.html">Return to Profile</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Edit Profile Modal -->
+        <div id="editProfileModal" class="settings-modal">
+            <div class="settings-modal-backdrop"></div>
+            <div class="settings-modal-dialog">
+                <div class="settings-modal-header">
+                    <h3>Edit Profile</h3>
+                    <button class="settings-modal-close" id="closeEditProfile">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <form id="editProfileForm" class="settings-modal-body">
+                    <label class="settings-field-label" for="editName">Change name</label>
+                    <input type="text" id="editName" class="settings-input" placeholder="Enter new name" required>
+
+                    <label class="settings-field-label" for="editPassword">Change password</label>
+                    <input type="password" id="editPassword" class="settings-input" placeholder="Enter new password" required>
+
+                    <button type="submit" class="btn-primary full-width" style="margin-top: 14px;">
+                        Save changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="footer-dark">
+        <div class="container footer-grid">
+
+            <!-- Brand -->
+            <div>
+                <div class="footer-brand">
+                    <i data-lucide="shopping-bag"></i>
+                    <span>URBAN WAVES</span>
+                </div>
+                <p class="footer-desc">
+                    Elevating your wardrobe with timeless essentials and
+                    contemporary designs.
+                </p>
+            </div>
+
+            <!-- Shop -->
+            <div>
+                <h4>Shop</h4>
+                <ul>
+                    <li>New Arrivals</li>
+                    <li>Men</li>
+                    <li>Women</li>
+                    <li>Accessories</li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li onclick="window.location.href='dashboard.html#contact'">Contact Us</li>
+                    <li onclick="window.location.href='dashboard.html#terms'">Terms of Service</li>
+                    <li>Privacy Policy</li>
+                    <li>Shipping Info</li>
+                </ul>
+            </div>
+
+            <!-- App Buttons -->
+            <div>
+                <h4>Get our App</h4>
+                <p class="footer-desc">Shop on the go with our mobile app.</p>
+
+                <button class="app-btn">
+                    <i data-lucide="apple"></i>
+                    <div>
+                        <small>Download on the</small>
+                        <span>App Store</span>
+                    </div>
+                </button>
+
+                <button class="app-btn">
+                    <i data-lucide="play-circle"></i>
+                    <div>
+                        <small>Get it on</small>
+                        <span>Google Play</span>
+                    </div>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p>© 2025 URBAN WAVES. All rights reserved.</p>
+
+            <div class="footer-social">
+                <i data-lucide="instagram"></i>
+                <i data-lucide="twitter"></i>
+                <i data-lucide="facebook"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+    <script>
+        // Redirect to login if user is not logged in
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        if (!isLoggedIn) {
+            window.location.href = 'login.html';
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (!mobileMenu) return;
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Initialize icons
+        lucide.createIcons();
+
+        // Edit Profile modal logic
+        const editProfileItem = document.getElementById('editProfileItem');
+        const editProfileModal = document.getElementById('editProfileModal');
+        const closeEditProfile = document.getElementById('closeEditProfile');
+        const editProfileForm = document.getElementById('editProfileForm');
+        const editNameInput = document.getElementById('editName');
+        const editPasswordInput = document.getElementById('editPassword');
+
+        function openEditProfileModal() {
+            try {
+                const userDataStr = localStorage.getItem('userData');
+                if (userDataStr) {
+                    const userData = JSON.parse(userDataStr);
+                    editNameInput.value = userData.name || '';
+                } else {
+                    editNameInput.value = '';
+                }
+                editPasswordInput.value = '';
+            } catch (e) {
+                console.error('Error loading user data for edit profile:', e);
+            }
+
+            if (editProfileModal) {
+                editProfileModal.classList.add('show');
+            }
+        }
+
+        function closeEditProfileModal() {
+            if (editProfileModal) {
+                editProfileModal.classList.remove('show');
+            }
+        }
+
+        if (editProfileItem) {
+            editProfileItem.addEventListener('click', openEditProfileModal);
+        }
+
+        if (closeEditProfile) {
+            closeEditProfile.addEventListener('click', closeEditProfileModal);
+        }
+
+        // Close when clicking on backdrop
+        if (editProfileModal) {
+            editProfileModal.addEventListener('click', function (e) {
+                if (e.target.classList.contains('settings-modal-backdrop')) {
+                    closeEditProfileModal();
+                }
+            });
+        }
+
+        // Expose open function globally for onclick handler
+        window.openEditProfileModal = openEditProfileModal;
+
+        if (editProfileForm) {
+            editProfileForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const newName = editNameInput.value.trim();
+                const newPassword = editPasswordInput.value.trim();
+
+                if (!newName) {
+                    alert('Please enter a name.');
+                    return;
+                }
+
+                try {
+                    const userDataStr = localStorage.getItem('userData');
+                    const userData = userDataStr ? JSON.parse(userDataStr) : {};
+
+                    userData.name = newName;
+
+                    // Only update password if user entered something
+                    if (newPassword) {
+                        userData.password = newPassword;
+                    }
+
+                    localStorage.setItem('userData', JSON.stringify(userData));
+
+                    if (typeof showToast === 'function') {
+                        showToast('Profile updated');
+                    } else {
+                        alert('Profile updated');
+                    }
+                } catch (e) {
+                    console.error('Error saving edited profile:', e);
+                    alert('Something went wrong. Please try again.');
+                }
+
+                closeEditProfileModal();
+            });
+        }
+    </script>
+</body>
+</html>
+
+
